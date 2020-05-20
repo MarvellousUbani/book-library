@@ -16,16 +16,21 @@ function addBookToLibrary(author, title, pages, read) {
 }
 
 function render() {
+    bookCard.innerHTML= "";
     for (let book of myLibrary) {
         const bookItem = document.createTextNode(`Author: ${book.author} Title: ${book.title} Pages: ${book.pages} Read: ${book.read}`)
         let bookElem = document.createElement('li');
-        bookElem.appendChild(bookItem)
+        let button = document.createElement('button');
+        button.setAttribute('onclick', 'removeBook(this)')
+        button.textContent = " x";
+        bookElem.appendChild(bookItem);
+        bookElem.appendChild(button);
         bookCard.appendChild(bookElem);
     }
 }
 
 
-let test = addBookToLibrary('Mike', 'Cooking book', 55);
+// let test = addBookToLibrary('Mike', 'Cooking book', 55);
 // let test1 = addBookToLibrary('Roodz', 'notebook', 15, true);
 // let test2 = addBookToLibrary('Tolkien', 'The Hobbit', 158, false);
 // let test3 = addBookToLibrary('Ultra', 'The Hobbit', 158, false);
@@ -37,6 +42,7 @@ let test = addBookToLibrary('Mike', 'Cooking book', 55);
 // save new book button
 
 let saveBtn = document.getElementById("save");
+let removeBtn = document.querySelector(".remove-button");
 
 function addBook(e) {
     let author = document.getElementById("author").value;
@@ -49,4 +55,14 @@ function addBook(e) {
     render();
 }
 
-saveBtn.addEventListener('submit', addBook)
+
+function removeBook(a){
+    a.parentElement.innerHTML = "";
+}
+
+saveBtn.addEventListener('submit', addBook);
+
+if(removeBtn){
+    removeBtn.addEventListener('click', removeBook)
+}
+
