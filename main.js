@@ -59,9 +59,7 @@ function removeBook(id) {
 function toggleReadStatus(id) {
   const test = myLibrary.find((element) => element.id == id.parentElement.id);
   const readStatus = myLibrary[myLibrary.indexOf(test)].read;
-  if (myLibrary[myLibrary.indexOf(test)].read == false) { myLibrary[myLibrary.indexOf(test)].read = true; } else {
-    myLibrary[myLibrary.indexOf(test)].read = false;
-  }
+  myLibrary[myLibrary.indexOf(test)].read = !myLibrary[myLibrary.indexOf(test)].read
   render();
 }
 

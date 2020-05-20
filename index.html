@@ -9,27 +9,27 @@
 </head>
 
 <body>
-    <h1>Book Library</h1>
-    <ul id="book-card">
-    </ul>
-    <button id="new-book">New Button</button>
-    <form id="save">
+    <div class="container">
+        <h1>Book Library</h1>
+        <ul id="book-card">
+        </ul>
+        <button id="new-book">New Book</button>
+        <form id="save">
 
-        <label for="author">Author</label>
-        <input type="text" name="author" id="author" placeholder="author">
+           
+            <input type="text" name="author" id="author" placeholder="Author">
 
-        <label for="title">Title</label>
-        <input type="text" name="title" id="title" placeholder="title">
+            <input type="text" name="title" id="title" placeholder="Title">
 
-        <label for="pages">Pages</label>
-        <input type="number" name="pages" id="pages">
+            <input type="number" min=1 name="pages" id="pages" placeholder="Pages">
 
-        <select name="read" id="read">
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-        <input type="submit" value="Save">
-    </form>
+            <select name="read" id="read">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            </select>
+            <input type="submit" value="Save">
+        </form>
+    </div>
     <script src="./main.js"></script>
 </body>
 
