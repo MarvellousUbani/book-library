@@ -23,10 +23,14 @@ function render() {
         let bookElem = document.createElement('li');
         bookElem.setAttribute("id", `${book.id}`);
         let button = document.createElement('button');
+        let toggleBtn = document.createElement('button');
         button.setAttribute('onclick', 'removeBook(this)')
+        toggleBtn.setAttribute('onclick', 'toggleReadStatus(this)')
         button.textContent = " x";
+        toggleBtn.textContent = "Change Read Status"
         bookElem.appendChild(bookItem);
         bookElem.appendChild(button);
+        bookElem.appendChild(toggleBtn)
         bookCard.appendChild(bookElem);
     }
 }
@@ -44,7 +48,6 @@ function render() {
 // save new book button
 
 let saveBtn = document.getElementById("save");
-let removeBtn = document.querySelector(".remove-button");
 
 function addBook(e) {
     let author = document.getElementById("author").value;
@@ -66,8 +69,22 @@ function removeBook(id) {
     render();
 }
 
+function toggleReadStatus(id){
+    let test = myLibrary.find(element => element.id == id.parentElement.id);
+    let readStatus = myLibrary[myLibrary.indexOf(test)].read;
+    // console.log(myLibrary[myLibrary.indexOf(test)])
+    if(myLibrary[myLibrary.indexOf(test)].read == false)
+    myLibrary[myLibrary.indexOf(test)].read = true;
+    else{
+        myLibrary[myLibrary.indexOf(test)].read = false;
+    }
+    render();
+}
+
 saveBtn.addEventListener('submit', addBook);
 
-if (removeBtn) {
-    removeBtn.addEventListener('click', removeBook(id));
-}
+
+
+
+//Add toggle button to change status to true or false
+// onclick find the book, set status to true if false ..
