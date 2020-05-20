@@ -4,6 +4,7 @@ let bookCard = document.getElementById('book-card');
 let myLibrary = [];
 
 function Book(author, title, pages, read = false) {
+    this.id = Math.floor(Math.random() * 100);
     this.author = author;
     this.title = title;
     this.pages = pages;
@@ -16,10 +17,11 @@ function addBookToLibrary(author, title, pages, read) {
 }
 
 function render() {
-    bookCard.innerHTML= "";
+    bookCard.innerHTML = "";
     for (let book of myLibrary) {
-        const bookItem = document.createTextNode(`Author: ${book.author} Title: ${book.title} Pages: ${book.pages} Read: ${book.read}`)
+        const bookItem = document.createTextNode(`Id: ${book.id} Author: ${book.author} Title: ${book.title} Pages: ${book.pages} Read: ${book.read}`)
         let bookElem = document.createElement('li');
+        bookElem.setAttribute("id", `${book.id}`);
         let button = document.createElement('button');
         button.setAttribute('onclick', 'removeBook(this)')
         button.textContent = " x";
@@ -56,13 +58,16 @@ function addBook(e) {
 }
 
 
-function removeBook(a){
-    a.parentElement.innerHTML = "";
+function removeBook(id) {
+    // console.log(id.parentElement.id);
+    let test = myLibrary.find(element => element.id == id.parentElement.id);
+    // console.log(myLibrary.indexOf(test));
+    myLibrary.splice(myLibrary.indexOf(test), 1);
+    render();
 }
 
 saveBtn.addEventListener('submit', addBook);
 
-if(removeBtn){
-    removeBtn.addEventListener('click', removeBook)
+if (removeBtn) {
+    removeBtn.addEventListener('click', removeBook(id));
 }
-
