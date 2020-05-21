@@ -19,18 +19,21 @@ function addBookToLibrary(author, title, pages, read) {
 function render() {
     bookCard.innerHTML = '';
     for (const book of myLibrary) {
-        const bookItem = document.createTextNode(`Author: ${book.author} Title: ${book.title} Pages: ${book.pages} Read: ${book.read}`);
+        const bookItem =`<span>Author: ${book.author}</span> <span>Title: ${book.title}</span> <span>Pages: ${book.pages} </span> <span>Read: ${book.read}</span>`;
         const bookElem = document.createElement('div');
         bookElem.setAttribute('id', `${book.id}`);
+        const wrapButtons = document.createElement('div');
+        wrapButtons.classList.add("wrap-buttons");
         const button = document.createElement('button');
         const toggleBtn = document.createElement('button');
         button.setAttribute('onclick', 'removeBook(this)');
         toggleBtn.setAttribute('onclick', 'toggleReadStatus(this)');
         button.textContent = ' x';
         toggleBtn.textContent = 'Change Read Status';
-        bookElem.appendChild(bookItem);
-        bookElem.appendChild(button);
-        bookElem.appendChild(toggleBtn);
+        bookElem.innerHTML = bookItem;
+        wrapButtons.appendChild(button);
+        wrapButtons.appendChild(toggleBtn);
+        bookElem.appendChild(wrapButtons);
         bookCard.appendChild(bookElem);
     }
 }
