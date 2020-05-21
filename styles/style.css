@@ -41,24 +41,18 @@ select[name="read"] {
 
 #book-card {
     display: flex;
-    /* justify-content: center; */
     justify-content: flex-start;
     flex-wrap: wrap;
 }
 
 #book-card>div {
-    /* display: flex;
-    flex-direction: column;
-    justify-items: space-between;
-    flex: 45%;
-    flex-wrap: wrap; */
-    /* background: #000; */
     width: 32%;
     border: 1px solid brown;
     margin-bottom: 2rem;
     padding: 2rem 0;
     border-radius: 6px;
     margin-right: 1%;
+    box-shadow: 1px 2px 4px 0px brown;
 }
 
 #book-card>div>span {
