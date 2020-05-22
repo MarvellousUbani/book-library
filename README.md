@@ -4,6 +4,7 @@
 ![booklib](https://user-images.githubusercontent.com/17970203/82585721-63c90080-9b8e-11ea-834d-8d7eba52841e.png)
 
 ## Description:
+
  Simple Library app built using vanilla javascript. 
 
 ## Built With
