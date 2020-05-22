@@ -12,7 +12,6 @@ function Book(author, title, pages, read = false) {
 
 function addBookToLibrary(author, title, pages, read) {
     myLibrary.push(new Book(author, title, pages, read))
-    console.log(myLibrary)
 }
 
 function render() {
@@ -46,6 +45,7 @@ function addBook(e) {
     e.preventDefault()
     addBookToLibrary(author, title, pages, read)
     document.getElementById('save').style.display = 'none'
+    document.getElementById('save').reset();
     render()
 }
 
