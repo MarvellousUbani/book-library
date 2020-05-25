@@ -19,7 +19,7 @@
 ```
 
 ## Live Demo
-[Click Here](https://rawcdn.githack.com/MarvellousUbani/book-library/cf391b9ee96916f8702a1ddda4f199252283e843/index.html)
+[Click Here](https://rawcdn.githack.com/MarvellousUbani/book-library/c668205c98f554f11b9cfc10795513f1f98b3d40/index.html)
 
 
 ## Authors:
